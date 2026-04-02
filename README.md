@@ -89,7 +89,62 @@ npm install -D tailwindcss postcss autoprefixer
 npm install -D tailwindcss @tailwindcss/vite   
 ```
 
+**Then import it in vite.config.ts**
+it should look like this 
+
+```
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import tailwindcss from '@tailwindcss/vite'
+
+export default defineConfig({
+  plugins: [react(), tailwindcss()],
+})
+
+```
+
+**Then import the tailwind to index.css and ensure that main.tsx is using index.css**
+
+```
+@import "tailwindcss";
+```
+
 ### Step 3 Initial push 
+
 ```
 git add . ; git commit -m "Create react up to tailwind css setup" ; git push -u origin main
+```
+
+### Step 4 Set up alias
+
+**Add the content at tsconfig.app.json**
+```
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "composite": true
+  },
+  "include": ["src"]
+}   
+```
+
+**Then update the vite.config.ts**
+it should look like this 
+```
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import path from 'path';
+import tailwindcss from '@tailwindcss/vite'
+
+export default defineConfig({
+  plugins: [react(), tailwindcss()],
+    resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+    },
+  },
+})
 ```

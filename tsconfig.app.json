@@ -25,9 +25,8 @@
     "noUncheckedSideEffectImports": true,
 
     /* For alias */
-    "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["./src/*"]
     },
     "composite": true
   },

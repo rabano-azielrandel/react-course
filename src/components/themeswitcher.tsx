@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { applyTheme, getStoredTheme, getSystemTheme, Theme } from "@/lib/theme";
+import { applyTheme, getStoredTheme, getSystemTheme } from "@/lib/theme";
+import type { Theme } from "@/lib/theme";
 
 export default function ThemeSwitcher() {
   const [theme, setTheme] = useState<Theme>("light");

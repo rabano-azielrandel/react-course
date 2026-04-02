@@ -25,7 +25,7 @@ export default function ThemeSwitcher() {
       onClick={toggleTheme}
       className="bg-card border border-border px-3 py-2 rounded-xl text-sm hover:bg-primary hover:text-primary-foreground transition"
     >
-      {theme === "dark" ? "🌙 Dark" : "☀️ Light"}
+      {theme === "dark" ? "🌙" : "☀️"}
     </button>
   );
 }

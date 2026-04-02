@@ -1,7 +1,4 @@
-import { twMerge } from "tailwind-merge";
-import clsx from "clsx";
-
-const cn = (...inputs: any[]) => twMerge(clsx(inputs));
+import { cn } from "@/lib/utils";
 
 type CardSize = "sm" | "md" | "lg" | "xl" | "full";
 

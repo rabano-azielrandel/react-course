@@ -71,3 +71,25 @@ export default defineConfig([
   },
 ])
 ```
+
+## Steps that I've done
+
+### Step 1 Create React App
+
+Choose Typescript only
+
+```
+npm create vite@latest .
+```
+
+### Step 2 Install Tailwind and Vite plugin
+
+```
+npm install -D tailwindcss postcss autoprefixer  
+npm install -D tailwindcss @tailwindcss/vite   
+```
+
+### Step 3 Initial push 
+```
+git add . ; git commit -m "Create react up to tailwind css setup" ; git push -u origin main
+```

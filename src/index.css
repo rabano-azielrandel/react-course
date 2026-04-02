@@ -39,3 +39,8 @@
 body {
   @apply bg-background text-foreground;
 }
+
+.centerXY {
+  justify-content: center;
+  align-items: center;
+}

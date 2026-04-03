@@ -121,9 +121,8 @@ git add . ; git commit -m "Create react up to tailwind css setup" ; git push -u 
 ```
 {
   "compilerOptions": {
-    "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["./src/*"]
     },
     "composite": true
   },
@@ -147,4 +146,115 @@ export default defineConfig({
     },
   },
 })
+```
+
+## Backend Setup
+
+### Step 1 Create a server folder and initialize node
+
+```
+mkdir server
+cd server
+npm init -y
+```
+
+### Step 2 Install backend dependencies
+
+for node packages
+```
+npm install express cors jsonwebtoken bcrypt dotenv
+```
+
+for auto restart of node when theres a changes
+```
+npm install -D nodemon
+```
+
+### Step 3 Create entry file in /server
+
+index.js
+```
+import express from "express";
+import cors from "cors";
+
+const app = express();
+
+app.use(cors());
+app.use(express.json());
+
+app.get("/", (req, res) => {
+  res.send("API is running");
+});
+
+app.listen(3000, () => {
+  console.log("Server running on http://localhost:3000");
+});
+```
+
+### Step 4 Fix ES Module
+in /server/package.json add this
+
+```
+"type": "module"
+```
+
+### Step 5 Set up nodemon to use npm run dev 
+
+add this in /server/package.json
+```
+"scripts": {
+  "dev": "nodemon index.js",
+  "start": "node index.js"
+}
+```
+
+### Step 6 Run backend
+
+if Step 5 is skipped
+```
+npx nodemon index.js
+```
+
+else
+```
+npm run dev
+```
+
+> **_NOTE:_**  This requires to run in separate terminal, 1 for 5173 port and the other one is port 3000
+
+## Run concurrently
+
+### Step 1 Install concurently in root in our case **react-course**
+
+```
+npm install -D concurrently
+```
+
+### Step 2 Update Root package.json
+
+```
+"scripts": {
+  "dev": "vite",
+  "server": "cd server && npm run dev",
+  "fullstack": "concurrently \"npm run dev\" \"npm run server\""
+}
+```
+
+in our case the package.json scripts will look like this 
+```
+"scripts": {
+  "dev": "vite",
+  "build": "tsc -b && vite build",
+  "lint": "eslint .",
+  "preview": "vite preview",
+
+  "server": "npm --prefix server run dev",
+  "fullstack": "concurrently \"npm run dev\" \"npm run server\""
+}
+```
+
+### Step 3 Run 
+
+```
+npm run fullstack
 ```

@@ -5,8 +5,8 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-gray-900 text-white shadow-md">
-      <div className="w-3xl">
+    <nav className="bg-background text-primary border-b border-primary">
+      <div className="w-4xl">
         <div className="flex justify-between items-center h-16">
           {/* Theme */}
           <ThemeSwitcher />

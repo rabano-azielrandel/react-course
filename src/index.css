@@ -2,45 +2,75 @@
 
 /* 🌞 LIGHT THEME */
 :root {
-  --background: 255 255 255;
-  --foreground: 10 10 10;
+  /* Base */
+  --background: 40 12% 82%; /* Buttercream */
+  --foreground: 215 48% 11%; /* Deep Navy */
 
-  --primary: 37 99 235;
-  --primary-foreground: 255 255 255;
+  /* Brand */
+  --primary: 214 45% 20%; /* Midnight Blue */
+  --primary-foreground: 40 12% 82%;
 
-  --border: 229 231 235;
-  --card: 249 250 251;
+  /* Supporting */
+  --secondary: 210 20% 41%; /* Dusty Blue */
+  --accent: 225 23% 79%; /* Ivory */
+
+  /* Surfaces */
+  --tertiary: 225 23% 79%; /* Ivory */
+  --border: 225 23% 70%;
+
+  /* 🔥 Feature (your idea applied properly) */
+  --feature: 215 48% 11%; /* Deep Navy */
+  --feature-foreground: 40 12% 82%;
 }
 
 /* 🌙 DARK THEME */
 .dark {
-  --background: 10 10 10;
-  --foreground: 249 250 251;
+  /* Base */
+  --background: 215 48% 11%; /* Deep Navy */
+  --foreground: 40 12% 82%; /* Buttercream */
 
-  --primary: 59 130 246;
-  --primary-foreground: 10 10 10;
+  /* Brand */
+  --primary: 40 12% 82%; /* Buttercream */
+  --primary-foreground: 215 48% 11%;
 
-  --border: 31 41 55;
-  --card: 17 24 39;
+  /* Supporting */
+  --secondary: 210 20% 41%; /* Dusty Blue */
+  --accent: 214 45% 20%; /* Midnight Blue */
+
+  /* Surfaces */
+  --tertiary: 214 45% 20%; /* Midnight Blue */
+  --border: 214 30% 25%;
+
+  /* 🔥 Feature (inverted) */
+  --feature: 40 12% 82%; /* Ivory */
+  --feature-foreground: 215 48% 11%;
 }
 
-/* 🎨 Map tokens to Tailwind */
+/* 🎨 Tailwind v4 token mapping */
 @theme {
-  --color-background: rgb(var(--background));
-  --color-foreground: rgb(var(--foreground));
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
 
-  --color-primary: rgb(var(--primary));
-  --color-primary-foreground: rgb(var(--primary-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
 
-  --color-border: rgb(var(--border));
-  --color-card: rgb(var(--card));
+  --color-secondary: hsl(var(--secondary));
+  --color-accent: hsl(var(--accent));
+
+  --color-tertiary: hsl(var(--tertiary));
+  --color-border: hsl(var(--border));
+
+  /* 🔥 Custom token */
+  --color-feature: hsl(var(--feature));
+  --color-feature-foreground: hsl(var(--feature-foreground));
 }
 
+/* 🧩 Base styles */
 body {
   @apply bg-background text-foreground;
 }
 
+/* utility */
 .centerXY {
-  justify-content: center;
-  align-items: center;
+  @apply flex justify-center items-center;
 }

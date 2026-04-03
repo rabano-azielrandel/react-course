@@ -10,21 +10,32 @@ import { Button } from "@/components/button";
 
 export default function Login() {
   return (
-    <div className="w-3xl h-full p-10 bg-amber-400">
-      <div className="h-full flex centerXY bg-blue-300">
-        <Card>
-          <CardHeader>
-            <CardTitle title="Login" />
+    <div className="w-4xl h-full p-10 bg-background">
+      <div className="h-full flex centerXY">
+        <Card className="h-100 bg-primary">
+          <CardHeader className="h-24 py-10 px-4">
+            <CardTitle
+              title="Login"
+              className="text-background text-3xl font-semibold"
+            />
           </CardHeader>
 
-          <CardContent>
-            <Input label="Email" placeholder="Enter your email" />
-            <Input label="Password" type="password" />
+          <CardContent className="flex flex-col gap-4">
+            <Input
+              label="Email"
+              placeholder="Enter your email"
+              className="placeholder:text-background text-background"
+            />
+            <Input
+              label="Password"
+              type="password"
+              placeholder="Enter your password"
+              className="placeholder:text-background text-background"
+            />
           </CardContent>
 
           <CardFooter className="flex justify-end gap-2">
-            <Button variant="ghost">Cancel</Button>
-            <Button>Submit</Button>
+            <Button className="text-primary bg-tertiary/80">Submit</Button>
           </CardFooter>
         </Card>
       </div>

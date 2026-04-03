@@ -41,7 +41,7 @@ export function CardHeader({
   children,
   className,
 }: PropsWithChildren<{ className?: string }>) {
-  return <div className={cn("p-4 border-b", className)}>{children}</div>;
+  return <div className={cn("p-4", className)}>{children}</div>;
 }
 
 // 🔹 Title (text only)
@@ -62,5 +62,5 @@ export function CardFooter({
   children,
   className,
 }: PropsWithChildren<{ className?: string }>) {
-  return <div className={cn("p-4 border-t", className)}>{children}</div>;
+  return <div className={cn("p-4", className)}>{children}</div>;
 }

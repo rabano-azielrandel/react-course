@@ -9,7 +9,9 @@ type InputProps = {
 export function Input({ label, error, className, ...props }: InputProps) {
   return (
     <div className="w-full space-y-1">
-      {label && <label className="text-sm font-medium">{label}</label>}
+      {label && (
+        <label className="text-sm text-background font-medium">{label}</label>
+      )}
 
       <input
         className={cn(

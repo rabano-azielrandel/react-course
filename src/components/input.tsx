@@ -8,7 +8,7 @@ type InputProps = {
 
 export function Input({ label, error, className, ...props }: InputProps) {
   return (
-    <div className="w-full space-y-1">
+    <div className="w-full flex flex-col gap-2">
       {label && (
         <label className="text-sm text-background font-medium">{label}</label>
       )}

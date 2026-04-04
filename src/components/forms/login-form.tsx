@@ -8,8 +8,11 @@ import {
 import { Input } from "@/components/input";
 import { Button } from "@/components/button";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function LoginForm() {
+  const navigate = useNavigate();
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -17,7 +20,7 @@ export default function LoginForm() {
     e.preventDefault();
 
     try {
-      const res = await fetch("", {
+      const res = await fetch("http://localhost:3000/api/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -32,7 +35,11 @@ export default function LoginForm() {
 
       if (!res.ok) throw new Error(data.message || "Login failed");
 
-      localStorage.setItem("token", data);
+      // store token
+      localStorage.setItem("token", data.token);
+
+      //redirect
+      navigate("/dashboard");
     } catch (err: any) {
       console.log("Login Error: ", err.message);
     }

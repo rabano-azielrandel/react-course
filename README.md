@@ -118,7 +118,7 @@ git add . ; git commit -m "Create react up to tailwind css setup" ; git push -u 
 ### Step 4 Set up alias
 
 **Add the content at tsconfig.app.json**
-```
+```js
 {
   "compilerOptions": {
     "paths": {
@@ -132,7 +132,7 @@ git add . ; git commit -m "Create react up to tailwind css setup" ; git push -u 
 
 **Then update the vite.config.ts**
 it should look like this 
-```
+```js
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'path';
@@ -173,7 +173,7 @@ npm install -D nodemon
 ### Step 3 Create entry file in /server
 
 index.js
-```
+```js
 import express from "express";
 import cors from "cors";
 
@@ -201,7 +201,7 @@ in /server/package.json add this
 ### Step 5 Set up nodemon to use npm run dev 
 
 add this in /server/package.json
-```
+```js
 "scripts": {
   "dev": "nodemon index.js",
   "start": "node index.js"
@@ -232,7 +232,7 @@ npm install -D concurrently
 
 ### Step 2 Update Root package.json
 
-```
+```js
 "scripts": {
   "dev": "vite",
   "server": "cd server && npm run dev",
@@ -241,7 +241,7 @@ npm install -D concurrently
 ```
 
 in our case the package.json scripts will look like this 
-```
+```js
 "scripts": {
   "dev": "vite",
   "build": "tsc -b && vite build",

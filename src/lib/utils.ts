@@ -6,5 +6,5 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function CONTAINS_TOKEN(){
-  return localStorage.getItem("token");
+  return localStorage.getItem("token") !== null;
 }

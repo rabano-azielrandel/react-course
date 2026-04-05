@@ -5,7 +5,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-background text-primary border-b border-primary">
+    <nav className="flex centerXY bg-red-600 text-primary border-b border-primary">
       <div className="w-4xl">
         <div className="flex justify-between items-center h-16">
           {/* Theme */}

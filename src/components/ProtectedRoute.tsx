@@ -1,11 +1,10 @@
 import { Navigate } from "react-router-dom";
+import { CONTAINS_TOKEN } from "@/lib/utils";
 
 export default function ProtectedRoute({ children }: any) {
-  const token = localStorage.getItem("token");
+  console.log("token:", CONTAINS_TOKEN);
 
-  console.log("token:", token);
-
-  if (!token) {
+  if (!CONTAINS_TOKEN) {
     return <Navigate to="/" replace />;
   }
 

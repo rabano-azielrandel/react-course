@@ -74,7 +74,7 @@ export default function LoginForm() {
         </CardContent>
 
         <CardFooter className="flex justify-end gap-2">
-          <Button type="submit" className="text-primary bg-tertiary/80">
+          <Button type="submit" className="text-primary bg-tertiary">
             Submit
           </Button>
         </CardFooter>

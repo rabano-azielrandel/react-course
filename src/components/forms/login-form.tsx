@@ -47,7 +47,7 @@ export default function LoginForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <Card className="w-80 h-100 bg-primary">
+      <Card className="w-84 h-100 bg-primary">
         <CardHeader className="h-24 py-10 px-4">
           <CardTitle
             title="Login"

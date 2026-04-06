@@ -2,10 +2,8 @@ import LoginForm from "@/components/forms/login-form";
 
 export default function Login() {
   return (
-    <div className="w-4xl h-full mx-auto p-10 bg-background">
-      <div className="h-full flex centerXY">
-        <LoginForm />
-      </div>
+    <div className="w-7xl h-full mx-auto flex centerXY bg-background">
+      <LoginForm />
     </div>
   );
 }

@@ -6,7 +6,7 @@ import Navbar from "./components/navbar";
 
 export default function App() {
   return (
-    <>
+    <div className="h-screen flex flex-col">
       <Navbar />
 
       <Routes>
@@ -26,6 +26,6 @@ export default function App() {
         {/* UNKNOWN PATH == LOGIN */}
         {/* <Route path="*" element={<Login />} /> */}
       </Routes>
-    </>
+    </div>
   );
 }

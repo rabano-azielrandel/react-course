@@ -23,7 +23,7 @@ export default function ThemeSwitcher() {
   return (
     <button
       onClick={toggleTheme}
-      className="px-3 py-2 rounded-xl text-sm hover:bg-primary hover:text-primary-foreground transition"
+      className="ml-auto px-3 py-2 rounded-xl text-sm hover:bg-primary hover:text-primary-foreground transition"
     >
       {theme === "dark" ? "🌙" : "☀️"}
     </button>

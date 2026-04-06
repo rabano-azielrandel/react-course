@@ -28,7 +28,7 @@ export default function Navbar() {
 
   return (
     <nav className="flex centerXY text-primary border-b border-primary">
-      <div className="w-4xl">
+      <div className="w-7xl">
         <div className="flex justify-between items-center h-16">
           {/* Theme */}
           <ThemeSwitcher />

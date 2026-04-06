@@ -24,7 +24,7 @@ export default function App() {
         />
 
         {/* UNKNOWN PATH == LOGIN */}
-        {/* <Route path="*" element={<Login />} /> */}
+        <Route path="*" element={<Login />} />
       </Routes>
     </div>
   );

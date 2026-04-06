@@ -1,25 +1,29 @@
-import { useState } from "react";
-import { CONTAINS_TOKEN } from "@/lib/utils";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ThemeSwitcher from "./themeswitcher";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isAuth, setIsAuth] = useState(false);
 
   const navigate = useNavigate();
 
+  useEffect(() => {
+    fetch("http://localhost:3000/api/auth/me", {
+      credentials: "include",
+    })
+      .then((res) => setIsAuth(res.ok))
+      .catch(() => setIsAuth(false));
+  }, []);
+
   const handleLogout = async () => {
     try {
-      await fetch("http://localhost:3000/api/auth/login", {
+      await fetch("http://localhost:3000/api/auth/logout", {
         method: "POST",
-        // credentials: "include", // future proof for cookies
+        credentials: "include",
       });
 
-      // remove token as of now but switch to cookies in future
-      localStorage.removeItem("token");
-
-      console.log(localStorage.getItem("token"));
-      // redirect
+      setIsAuth(false);
       navigate("/");
     } catch (err) {
       console.log("handleLogout: ", err);
@@ -33,7 +37,7 @@ export default function Navbar() {
           {/* Theme */}
           <ThemeSwitcher />
 
-          {CONTAINS_TOKEN() && (
+          {isAuth && (
             <>
               {/* Desktop Menu */}
               <div className="hidden md:flex space-x-6">

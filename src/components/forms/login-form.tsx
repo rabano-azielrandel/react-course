@@ -29,14 +29,12 @@ export default function LoginForm() {
           username,
           password,
         }),
+        credentials: "include",
       });
 
       const data = await res.json();
 
       if (!res.ok) throw new Error(data.message || "Login failed");
-
-      // store token
-      localStorage.setItem("token", data.token);
 
       //redirect
       navigate("/dashboard");

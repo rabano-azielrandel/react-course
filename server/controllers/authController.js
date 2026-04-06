@@ -27,10 +27,16 @@ export const login = async (req, res) => {
         }
 
         // 3. generate token
-        const token = jwt.sign({ username }, SECRET, { expiresIn: "10s"});
+        const token = jwt.sign({ username }, SECRET, { expiresIn: "1h"});
 
         // 4. send response
-        res.json({ token });
+        res.cookie("token", token, {
+            httpOnly: true,
+            secure: false, // true in production
+            sameSite: "lax",
+        });
+
+        res.json({ message: "Login successful" });
     } catch (err) {
         console.error(err);
         res.status(500).json({message: "Server error"});
@@ -49,5 +55,20 @@ export const logout = async(req, res) => {
         return res.status(200).json({message: "Logged out successfully"});
     } catch (err) {
         console.log("Failed to logout: ", err );
+    }
+}
+
+export const me = (req, res) => {
+    const token = req.cookies.token;
+
+    if(!token) {
+        return res.status(401).json({message: "Not Authenticated"});
+    }
+
+    try {
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        res.json({user: decoded});
+    } catch(err) {
+        return res.status(403).json({ message: "Invalid token" });
     }
 }

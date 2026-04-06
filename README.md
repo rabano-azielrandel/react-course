@@ -258,3 +258,34 @@ in our case the package.json scripts will look like this
 ```
 npm run fullstack
 ```
+
+## Middleware setup
+
+### Step 1 install cookie-parser + setup index.js or the server entry (might be server.js)
+
+```
+npm install cookie-parser
+```
+
+Update the server entry file and include this
+```js
+import express from "express";
+import cors from "cors";
+import cookieParser from "cookie-parser";
+import authRoutes from "./routes/auth.js";
+
+const app = express();
+
+app.use(express.json());
+app.use(cookieParser()); // ✅ THIS is middleware
+app.use(cors({
+  origin: "http://localhost:5173",
+  credentials: true
+}));
+
+app.use("/api/auth", authRoutes);
+
+app.listen(3000, () => console.log("Server running"));
+```
+
+### Step 2
